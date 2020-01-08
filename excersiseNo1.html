@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		exercise No 1
+	</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<style>
+		div
+		{
+			width: 400px;
+			height: 500px;
+			background-color: yellow;
+			margin-left: 0px;
+			position: absolute;
+		}
+	</style>
+	<script>
+		var flag=0;
+		function changeColor()
+		{
+			if(flag===0)
+			{
+			$("div").css("background-color","red");
+			flag=1;
+			}
+			else
+			{
+				$("div").css("background-color","pink");
+				flag=0;
+			}
+		}
+		flag=0;
+		function toggleBorders()
+		{
+			if(flag===0)
+			{
+				$("div").css("border","3px dashed brown");
+				flag=1;
+			}
+			else
+			{
+				$("div").css("border","none");
+				flag=0;
+			}
+		}
+		flag=0;
+		function addNewBox()
+		{  
+			$("#container").wrapInner("<div style='margin-left: 450px; width:400px; height:500px; float:left; position: absolute;'></div>");
+			return;
+		}
+	</script>
+</head>
+<body>
+<button onclick="changeColor()">Toggle colors</button>  <button onclick="toggleBorders()">Toggle Rounded Borders</button>  <button 
+ onclick="addNewBox()">Add a New Box</button>
+
+<div id ="container">
+	</div>
+</body>
+</html>

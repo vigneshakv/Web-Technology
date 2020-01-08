@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Thanithotti</title>
+    <style>
+        #tank{
+            width:200px;
+            height:400px;
+            border-top-left-radius:10%;
+            border-top-right-radius:10%;
+            border:1px solid grey;
+            margin-left:200px;
+        }
+        #waterIntank{
+            position:absolute;
+            margin-top:0px;
+            width:200px;
+            height:400px;
+            border-top-left-radius:10%;
+            border-top-right-radius:10%;
+            overflow:hidden;
+            background-color:skyblue;
+        }
+        
+        #pipe{
+            position:absolute;
+            width:200px;
+            height:10px;
+            top:400px;
+            left:410px;
+            background-color:brown;
+        }
+        #rollpipe{
+            position:absolute;
+            width:20px;
+            height:10px;
+            top:380px;
+            left:600px;
+            background-color:red;
+        }
+        #bottompipe{
+            position:absolute;
+            width:10px;
+            height:40px;
+            top:388px;
+            left:606px;
+            background-color:brown;
+        }
+        #waterInground{
+            position:absolute;
+            width:10px;
+            height:0px;
+            top:428px;
+            left:606px;
+            background-color:skyblue;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        var flag=0;
+        $("document").ready(function(){
+            $("#rollpipe").click(function(){
+                if(flag===0)
+                {
+                $("#waterIntank").animate({height:"0px",marginTop:"400px"},4000);
+                $("#waterInground").show();
+                $("#waterInground").animate({height:"300px"},3000);
+                $("#rollpipe").css("background-color","green");
+                flag=1;
+                }
+                else
+                {
+                $("#waterIntank").stop();
+                $("#waterInground").hide();
+                $("#rollpipe").css("background-color","red");
+                flag=0;
+                }
+            });
+        });
+    </script>
+    </head>
+    <body>
+        <div id="tank">
+            <div id="waterIntank"></div>
+        </div>
+        
+        <div id="pipe"></div>
+        <div id="rollpipe"></div>
+        <div id="bottompipe"></div>
+        <div id="waterInground"></div>     
+    </body>
+</html>
+
+
