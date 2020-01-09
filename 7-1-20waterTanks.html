@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>water tanks</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<style type="text/css">
+		#tank1{
+			margin-top:100px;
+			margin-left:75px;
+			width:200px;
+			height: 300px;
+			border-right: 3px solid black;
+			border-left: 3px solid black;
+			border-bottom : 3px solid black;
+			border-bottom-right-radius: 5%;
+			border-bottom-left-radius: 5%;
+			overflow: hidden;
+			float: left;
+		}
+		#water1{
+			width: 200px;
+			height: 270px;
+			background-color: red;
+			position: absolute;
+			margin-top: 30px;
+			overflow: hidden;
+			border-bottom-right-radius: 3%;
+			border-bottom-left-radius: 3%;
+			float: left;
+		}
+		#pipe1{
+			width: 20px;
+			height: 10px;
+			border: 1px solid black;
+			border-right: none;
+			border-left: none;
+			margin-left: 278px;
+			margin-top: 380px;
+			position: absolute;
+			float: left;
+		}
+		#pipe12{
+			width:10px;
+			height: 20px;
+			border: 1px solid black;
+			border-bottom: none;
+			margin-left:299px;
+			margin-top: 380px;
+			position: absolute;
+			float: left;
+		}
+		#waterpipe1
+		{
+			width:10px;
+			height: 0px;
+			margin-left:299px;
+			margin-top: 380px;
+			position: absolute;
+			float:left;
+			background-color: red;
+			
+		}
+		 #rollpipe1{
+            position:absolute;
+            width:20px;
+            height:10px;
+            top:380px;
+            left:299px;
+            background-color:red;
+            float: left;
+        }
+		#tank2{
+			margin-top:100px;
+			margin-left:100px;
+			width:200px;
+			height: 300px;
+			border-right: 3px solid black;
+			border-left: 3px solid black;
+			border-bottom : 3px solid black;
+			border-bottom-right-radius: 5%;
+			border-bottom-left-radius: 5%;
+			overflow: hidden;
+			float: left;
+		}
+		#water2{
+			width: 200px;
+			height: 270px;
+			background-color: lightgreen;
+			position: absolute;
+			margin-top: 30px;
+			overflow: hidden;
+			border-bottom-right-radius: 3%;
+			border-bottom-left-radius: 3%;
+			float: left;
+		}
+		#pipe2{
+			width: 20px;
+			height: 10px;
+			border: 1px solid black;
+			border-right: none;
+			border-left: none;
+			margin-left: 580px;
+			margin-top: 380px;
+			position: absolute;
+		}
+		#pipe22{
+			width:10px;
+			height: 20px;
+			border: 1px solid black;
+			border-bottom: none;
+			margin-left:600px;
+			margin-top: 380px;
+			position: absolute;
+		}
+		#waterpipe2
+		{
+			width:10px;
+			height: 0px;
+			margin-left:600px;
+			margin-top: 380px;
+			position: absolute;
+			float:left;
+			background-color: lightgreen;
+			
+		}
+		#rollpipe2{
+            position:absolute;
+            width:20px;
+            height:10px;
+            top:380px;
+            left:600px;
+            background-color:red;
+            float: left;
+        }
+		#tank3{
+			margin-top:100px;
+			margin-left:100px;
+			width:200px;
+			height: 300px;
+			border-right: 3px solid black;
+			border-left: 3px solid black;
+			border-bottom : 3px solid black;
+			border-bottom-right-radius: 5%;
+			border-bottom-left-radius: 5%;
+			overflow: hidden;
+			float: left;
+		}
+		#water3{
+			width: 200px;
+			height: 270px;
+			background-color: blue;
+			position: absolute;
+			margin-top: 30px;
+			overflow: hidden;
+			border-bottom-right-radius: 3%;
+			border-bottom-left-radius: 3%;
+			float: left;
+		}
+		#pipe3{
+			width: 20px;
+			height: 10px;
+			border: 1px solid black;
+			border-right: none;
+			border-left: none;
+			margin-left: 890px;
+			margin-top: 380px;
+			position: absolute;
+		}
+		#pipe33{
+			width:10px;
+			height: 20px;
+			border: 1px solid black;
+			border-bottom: none;
+			margin-left:910px;
+			margin-top: 380px;
+			position: absolute;
+		}
+		#waterpipe3
+		{
+			width:10px;
+			height: 0px;
+			margin-left:910px;
+			margin-top: 380px;
+			position: absolute;
+			float:left;
+			background-color: blue;
+			
+		}
+		#rollpipe3{
+            position:absolute;
+            width:20px;
+            height:10px;
+            top:380px;
+            left:910px;
+            background-color:red;
+            float: left;
+        }
+		#bigTank
+		{
+			width: 900px;
+			height: 200px;
+			border: 1px solid black;
+			border-top: none;
+			position: absolute;
+			margin-top: 400px;
+			margin-left: 45px;
+			overflow: hidden;
+		}
+		#bigTankWater{
+			width: 900px;
+			height: 0px;
+			position: absolute;
+			bottom: 0%;
+			opacity: 40%;
+		}
+	</style>
+	<script>
+		var flag=0;
+		$("document").ready(function(){
+	var incrementColor = function(color, step){
+    var colorToInt = parseInt(color.substr(1), 16),                     // Convert HEX color to integer
+        nstep = parseInt(step);                                         // Convert step to integer
+    if(!isNaN(colorToInt) && !isNaN(nstep)){                            // Make sure that color has been converted to integer
+        colorToInt += nstep;                                            // Increment integer with step
+        var ncolor = colorToInt.toString(16);                           // Convert back integer to HEX
+        ncolor = '#' + (new Array(7-ncolor.length).join(0)) + ncolor;   // Left pad "0" to make HEX look like a color
+        if(/^#[0-9a-f]{6}$/i.test(ncolor)){                             // Make sure that HEX is a valid color
+        return ncolor;
+        }
+    }
+    return color;
+};
+			$("#rollpipe1").click(function(){
+				if(flag===0)
+				{
+				$("#water1").animate({marginTop:"300px",height:"0px"},4000);
+				$("#waterpipe1").animate({height:"220"});
+				$("#bigTankWater").css({"background-color":incrementColor('#ff0000','0'),"opacity":"100%"});
+				$("#bigTankWater").animate({height : "56"},4000);
+				$("#waterpipe1").show();
+				flag=1;
+				$("#waterpipe1").css(height,"0px");
+				}
+				else
+				{
+					$("#water1").stop();
+					$("#waterpipe1").hide();
+					flag=0;
+					$("#bigTankWater").stop();
+
+				}
+			});
+			flag=0;
+			$("#rollpipe2").click(function(){
+				if(flag===0)
+				{
+				$("#water2").animate({marginTop:"300px",height:"0px"},4000);
+				$("#waterpipe2").animate({height:"220"});
+				$("#bigTankWater").css({"background-color":incrementColor('#f6ff00','90'),"transition":"3s","opacity":"100%"});
+				$("#bigTankWater").animate({height:"55"},1000);
+				$("#waterpipe2").show();
+				flag=1;
+				$("#waterpipe2").css(height,"0px");
+				}
+				else
+				{
+					$("#bigTankWater").stop();
+					$("#water2").stop();
+					$("#waterpipe2").hide();
+					flag=0;
+				}
+			});
+			flag=0;
+			$("#rollpipe3").click(function(){
+				if(flag===0)
+				{
+				$("#water3").animate({marginTop:"300px",height:"0px"},4000);
+				$("#waterpipe3").animate({height:"220"});
+				$("#bigTankWater").css({"background-color":incrementColor('#00d4f5','90'),"transition":"3s","opacity":"100%"});
+				$("#bigTankWater").animate({height:"60"},500);
+				$("#waterpipe3").show();
+				flag=1;
+				$("#waterpipe3").css(height,"0px");
+				}
+				else
+				{
+					$("#water3").stop();
+					$("#waterpipe3").hide();
+					flag=0;
+					$("#bigTankWater").stop();
+
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+<div id="tank1">
+	<div id="water1"></div>
+</div>
+<div id="pipe1"></div>
+<div id="pipe12"></div>
+<div id="waterpipe1"></div>
+<div id="rollpipe1"></div>
+<div id="tank2">
+	<div id="water2"></div>
+</div>
+<div id="pipe2"></div>
+<div id="pipe22"></div>
+<div id="waterpipe2"></div>
+<div id="rollpipe2"></div>
+<div id="tank3">
+	<div id="water3"></div>
+</div>
+<div id="pipe3"></div>
+<div id="pipe33"></div>
+<div id="waterpipe3"></div>
+<div id="rollpipe3"></div>
+<div id="bigTank">
+	<div id="bigTankWater"></div>
+</div>
+</body>
+</html>
