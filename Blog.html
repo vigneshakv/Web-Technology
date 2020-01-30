@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>
+            My Blog
+        </title>
+        <!--<script src="http://10.1.5.12:82/www/resources/jquery/jquery.min.js"></script>-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#profile").mouseover(function(){
+                    $("h2").slideDown();
+                    $("#data").slideDown();
+                });
+                $("body").click(function() {
+                $("h2").slideUp();
+                $("#data").slideUp();
+                });
+            });
+        </script>
+        <style>
+            body{
+                background:url(https://digixp.in/blog/wp-content/uploads/2019/06/blog.jpg);
+                background-size:100%;
+
+            }
+            label{
+                font-style:italic;
+                font-weight:bold;
+                color:white;
+                font-size:25px;
+            }
+            p{
+                text-align:center;
+                margin:auto;
+                color:white;
+            }
+            #data{
+                margin:auto;
+                height:auto;
+                width:20%;
+                background-color:#1dc6f0;
+                margin-top:10px;
+                display:none;
+                font-size:20px;
+            }
+            h2{
+                display:none;
+            }
+        </style>
+    </head>
+    <body>
+        <header style="font-size:30px;text-align:center;background-color:#1dc6f0;color:white;width:50%;margin:auto">
+            <h>WELCOME TO MY BLOG</h>
+        </header>
+        <div id="profile" style="width:20%;height:30%;border:3px solid #1dc6f0;margin:auto;border-radius:100%;margin-top:10px;overflow: hidden;">
+        <img src="https://i.ibb.co/7v3rbvL/vicky.jpg" height="100%" width="100%">
+        </div>
+        <br>
+         <h2 style="text-align:center;background-color:#1dc6f0;color:white;width:10%;margin:auto">Bio Data</h2>
+        <div id="data">
+            <form action="" target="_blank">
+               <p><label>Name : </label>Vigneshwaran A</p><br>
+               <p><label>Proffesion : </label>Web Developer</p><br>
+               <p><a href="resume.html">Click Here to View Resume</a></p>
+            </form>
+        </div>
+    </body>
+</html>

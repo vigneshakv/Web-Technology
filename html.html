@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>circle</title>
+    <style type="text/css">
+        #circle
+        {
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            position: relative;
+            left: 50px;
+            top: 50px;
+            transition: 1s ease-in;
+            
+        }
+        #container
+        {
+            width: 600px;
+            height: 600px;
+            border: 10px solid #b1bab3;
+            background-color: #c0ccc3;
+            overflow: hidden;
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+<div id="circle"></div>
+</div>
+<script>
+var circle = document.querySelector("#circle");
+var container = document.querySelector("#container");
+ 
+container.addEventListener("click", getClickPosition, false);
+ 
+function getClickPosition(e) {
+    //to get center position
+    /*
+    var parentPosition = getPosition(e.currentTarget);
+    var xPosition = e.clientX - parentPosition.x - (circle.clientWidth / 2);
+    var yPosition = e.clientY - parentPosition.y - (circle.clientHeight / 2);*/
+    var xPosition = e.clientX;
+    var yPosition = e.clientY;
+     
+    circle.style.left = xPosition + "px";
+    circle.style.top = yPosition + "px";
+}
+ 
+// Helper function to get an element's exact position
+/*function getPosition(el) {
+  var xPos = 0;
+  var yPos = 0;
+ 
+  while (el) {
+    if (el.tagName == "BODY") {
+      // deal with browser quirks with body/window/document and page scroll
+      var xScroll = el.scrollLeft || document.documentElement.scrollLeft;
+      var yScroll = el.scrollTop || document.documentElement.scrollTop;
+ 
+      xPos += (el.offsetLeft - xScroll + el.clientLeft);
+      yPos += (el.offsetTop - yScroll + el.clientTop);
+    } else {
+      // for all other non-BODY elements
+      xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
+      yPos += (el.offsetTop - el.scrollTop + el.clientTop);
+    }
+ 
+    el = el.offsetParent;
+  }
+  return {
+    x: xPos,
+    y: yPos
+  };
+}*/
+</script>
+</body>
+</html>

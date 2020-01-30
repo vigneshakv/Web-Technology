@@ -1,0 +1,63 @@
+<html>
+    
+    <head>
+       <title>Login REG NO:1721177 NAME:VIGNESHWARAN A</title>
+    <script>
+        function validate()
+        {
+            var Username=document.getElementById("name").value;
+            var password=document.getElementById("password").value;
+            if(Username==="test" && password==="test")
+            {
+               // document.getElementById("form_id").action="Blog.html";
+                //document.getElementById("form_id").submit();
+                window.location.href='Blog.html';
+            }
+            else
+            {
+                alert("Invalid Login");
+            }
+        }
+    </script>
+    <style>
+   body{
+       background-color:rgb(140,209,268);
+       overflow:hidden;
+   }
+   
+   #name{
+       position:relative;
+        
+   }
+    #password{
+       position:relative;
+       
+   }
+    </style>
+    </head>
+    <body>
+        <h><center>LOGIN</center></h>
+       
+           <form id="form_id" action="#" style="
+           height:content;
+           width:350px;
+           margin:auto;
+           margin-top:200px;
+           background-color:white;
+           padding-bottom:15px;
+           padding-top:15px;
+           padding-left:0px;
+           border:2px solid grey;
+           border-radius:13px">
+              <center><img src="http://10.1.5.12/media/images/avatar2.png" height="60" width="60"></center>
+                 <label ><center>Username</center><br><center><input type="text" id="name"  style="border:1px solid grey;border-radius:3px" ></center><br>
+                 </label>
+                 
+               <label><center>password</center><br><center> <input type="password" id="password"  style="border:1px solid grey;border-radius:3px"></center>
+                </label><br>
+               <center><input type="button" onclick="validate()" value="submit"></center>
+               <center><a href="Newuser.html" style="padding-left:15px;padding-top:5px">New user?</a></center>
+               <center><a href="ForgetPassword.html" style="padding-left:15px;padding-top:5px;">forget password</a></center>
+           </form>
+    </body>
+</html>
