@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Password Validation</title>
+	<script type="text/javascript">
+		function validate()
+{	var password=document.getElementById("password").value;
+	var confirmpassword=document.getElementById("cpassword").value;
+	var fname=document.getElementById("fname").value;
+	var lname=document.getElementById("lname").value;
+	var email=document.getElementById("email").value;
+	var userid=document.getElementById("uid").value;
+	fname=fname.split(" ").join("");
+	lname=lname.split(" ").join("");
+	email=email.split(" ").join("");
+	userid=userid.split(" ").join("");
+	password=password.split(" ").join("");
+	confirmpassword=confirmpassword.split(" ").join("");
+	if(fname==="")
+	{
+		$(document).ready(function(){
+        	$("#fname").css("background-color","red");
+        });
+        return false;
+
+	}
+	if(lname==="")
+	{
+		$(document).ready(function(){
+        	$("#lname").css("background-color","red");
+        });
+        return false;
+
+	}
+	if(email==="")
+	{
+		$(document).ready(function(){
+        	$("#email").css("background-color","red");
+        });
+        return false;
+
+	}
+	if(userid==="")
+	{
+		$(document).ready(function(){
+        	$("#uid").css("background-color","red");
+        });
+        return false;
+
+	}
+	if(password==="")
+	{
+		$(document).ready(function(){
+        	$("#password").css("background-color","red");
+        });
+        return false;
+
+	}
+	if(password==="")
+	{
+		$(document).ready(function(){
+        	$("#cpassword").css("background-color","red");
+        });
+        return false;
+
+	}
+	if(password!=confirmpassword)
+	{
+        $(document).ready(function(){
+        	$("#cpassword").css("background-color","red");
+        });
+        return false;
+	}
+	else{
+		alert("Successfully Created");
+		return true;
+	}
+}
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<style type="text/css">
+		div{
+			width: 60%;
+			height: 60%;
+			margin: auto;
+			border:1px solid yellow;
+			background-image: linear-gradient(to right, #cc2bfc , #ed87b7);
+		}
+	</style>
+	<script>
+		$(document).ready(function(){
+			$("#cpassword").on('keyup keypress click',function(){
+				$(this).css("background-color","white");
+			});
+			$("#password").on('keyup keypress click',function(){
+				$(this).css("background-color","white");
+				$(this).focusout(function(){
+					validate();
+				});
+			});
+			$("#fname").on('keyup keypress click',function(){
+				$(this).css("background-color","white");
+				$(this).focusout(function(){
+					validate();
+				});
+			});
+			$("#lname").on('keyup keypress click',function(){
+				$(this).css("background-color","white");
+				$(this).focusout(function(){
+					validate();
+				});
+			});
+			$("#email").on('keyup keypress click',function(){
+				$(this).css("background-color","white");
+				$(this).focusout(function(){
+					validate();
+				});
+			});
+			$("#uid").on('keyup keypress click',function(){
+				$(this).css("background-color","white");
+				$(this).focusout(function(){
+					validate();
+				});
+			});
+		});
+	</script>
+	<style type="text/css">
+		 label{
+                font-size:18px;
+            }
+            table,td,tr{
+                margin:auto;
+                height:auto;
+                padding-top:3%;
+                padding-bottom: 3%;
+            }
+            h1{
+            	text-align: center;
+            }
+	</style>
+</head>
+<body>
+<div>
+	<h1>Online Form registration</h1>
+<form id="form" onsubmit="return validate();">
+<table>
+	<tr>
+		<td><label>Firstname : </label></td><td><input type="text" name="firstname" id="fname"></td>
+	</tr>
+	<tr>
+		<td><label>Lastname : </label></td><td><input type="text" name="Lastname" id="lname"></td>
+	</tr>
+	<tr>
+		<td><label>Email : </label></td><td><input type="email" name="email" id="email"></td>
+	</tr>
+	<tr>
+		<td><label>user id : </label></td><td><input type="text" name="userid" id="uid"></td>
+	</tr>
+	<tr>
+		<td><label>Password : </label></td><td><input type="password" name="password" id="password" ></td>
+	</tr>
+	<tr>
+		<td><label>Confirm Password : </label></td><td><input type="password" name="confirmpassword" id="cpassword"></td>
+	</tr>
+	<tr>
+	<td><input type="submit" ></td><td><input type="reset" name="reset"></td>
+	</tr>
+</table>
+</form>
+</div>
+</body>
+</html>

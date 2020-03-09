@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Password Validation</title>
+	<script type="text/javascript">
+		function evalidate()
+{
+	var e = document.getElementById("email").value;
+	var i=0;
+	var ch="";
+	var flag=0;
+	if(e.length>=10)
+	{
+		for(i=0;i<e.length;i++)
+		{
+			if(e.charAt(i)==='@')
+			{
+				let j;
+				for(j=i;j>-1;j--)
+				{
+					ch+=e.charAt(j);
+					if(ch.length>0)
+					{
+						flag+=1;
+						ch="";
+						break;
+					}
+				}
+			}
+			if(e.charAt(i)==='@')
+			{
+				let j;
+				for(j=i+1;j<e.length;j++)
+				{
+					ch+=e.charAt(j);
+					if(ch.length>0)
+					{
+						flag+=1;
+						ch="";
+						break;
+					}
+				}
+			}
+			if(e.charAt(i)==='.' && flag==2)
+			{
+				let j;
+				for(j=i+1;j<e.length;j++)
+				{
+					ch+=e.charAt(j);
+					if(ch.length>1)
+					{
+						flag+=1;
+						ch="";
+						break;
+					}
+				}
+			}
+		}
+		if(flag==3)
+		{
+			alert("valid");
+		}
+		else
+		{
+			alert("Not valid");
+		}
+	}
+	else{
+		alert("Not valid");
+	}
+	return true;
+}
+	</script>
+	<style type="text/css">
+		 label{
+                font-size:18px;
+            }
+            table,td,tr{
+                margin:auto;
+                height:auto;
+                padding-top:3%;
+                padding-bottom: 3%;
+            }
+	</style>
+</head>
+<body>
+<form id="form" onsubmit="return evalidate()">
+<table>
+	<tr>
+		<td><label>Email : </label></td><td><input type="email" name="email" id="email" required></td>
+	</tr>
+	<tr>
+	<td><input type="submit"></td><td><input type="reset" name="reset"></td>
+	</tr>
+</table>
+</form>
+</body>
+</html>
